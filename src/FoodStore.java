@@ -1,9 +1,28 @@
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Map;
 
 public class FoodStore {
-    Hashtable<String, Integer> foods = new Hashtable<>();
+    private Hashtable<String, Integer> foods = new Hashtable<>();
+
+    private static HashMap<String, Integer> foodHealth =  new HashMap<String, Integer>() {{
+        put("hay", 1);
+        put("steak", 4);
+        put("fruit", 2);
+        put("celery", 0);
+        put("fish", 3);
+        put("ice cream", 1);
+    }};
+
+    // Stores the waste associated with each type of food
+    // static because stores values common to each instance of FoodStore
+    private static HashMap<String, Integer> foodWaste = new HashMap<String, Integer>() {{
+        put("hay", 4);
+        put("steak", 4);
+        put("fruit", 3);
+        put("celery", 1);
+        put("fish", 2);
+        put("ice cream", 3);
+    }};
 
     public void addFood(String food, int amount){
         if(foods.containsKey(food)){
