@@ -62,6 +62,16 @@ public class FoodStore {
         }
         return false;
     }
+
+    public int foodAvailable(String food){ return foods.get(food); }
+
+    public String getFoodStoreDetails(){
+        StringBuilder details = new StringBuilder("FOODSTORE: \t");
+        for(String food : foods.keySet()){
+            details.append(food + ":" + foods.get(food) + " ");
+        }
+        return details.toString();
+    }
 }
 /*
 Food is held in a Foodstore class. Each Enclosure.Enclosure will have a Foodstore where the animals get their food
