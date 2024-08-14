@@ -2,7 +2,7 @@ package Zoos;
 
 import Enclosures.Enclosure;
 import FoodStores.FoodStore;
-import Zookeeper.Zookeeper;
+import Zookeepers.Zookeeper;
 
 import java.util.ArrayList;
 
