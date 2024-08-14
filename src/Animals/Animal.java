@@ -51,7 +51,7 @@ public abstract class Animal {
 
 }
 /*
-The abstract Animals.Animal class will also need to define some methods for use by the Zoo and Zookeepers. These
+The abstract Animals.Animal class will also need to define some methods for use by the Zoos.Zoo and Zookeepers. These
 methods can be overridden by the other specific sub-classes. The methods you need to create are getAge(),
 getGender(), getLifeExpectancy(), canEat(String), that returns true if the Animals.Animal can eat that food, eat(),
 decreaseHealth(), treat(), and the abstract method aMonthPasses(),which will have a return type of

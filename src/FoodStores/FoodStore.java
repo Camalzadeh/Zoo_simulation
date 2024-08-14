@@ -1,10 +1,14 @@
+package FoodStores;
+
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Set;
 
 public class FoodStore {
-    private Hashtable<String, Integer> foods = new Hashtable<>();
 
-    private static HashMap<String, Integer> foodHealth =  new HashMap<String, Integer>() {{
+    private Hashtable<String, Integer> foods;
+
+    private static HashMap<String, Integer> foodsHealth =  new HashMap<String, Integer>() {{
         put("hay", 1);
         put("steak", 4);
         put("fruit", 2);
@@ -13,9 +17,7 @@ public class FoodStore {
         put("ice cream", 1);
     }};
 
-    // Stores the waste associated with each type of food
-    // static because stores values common to each instance of FoodStore
-    private static HashMap<String, Integer> foodWaste = new HashMap<String, Integer>() {{
+    private static HashMap<String, Integer> foodsWaste = new HashMap<String, Integer>() {{
         put("hay", 4);
         put("steak", 4);
         put("fruit", 3);
@@ -24,27 +26,50 @@ public class FoodStore {
         put("ice cream", 3);
     }};
 
-    public void addFood(String food, int amount){
-        if(foods.containsKey(food)){
-            foods.put(food, foods.get(food) + amount);
-        }else{
-            foods.put(food, amount);
+    public FoodStore(){
+        foods = new Hashtable<String,Integer>();
+        initializeFoods();
+    }
+
+    public void initializeFoods(){
+        for(String food : foodsHealth.keySet()){
+            foods.put(food, 0);
         }
     }
 
-    public void takeFood(String food){
-        if(foods.containsKey(food)){
-            foods.put(food, foods.get(food) - 1);
+    public static Set<String> getFoods(){
+        return foodsHealth.keySet();
+    }
+
+    public static int getFoodHealth(String food){
+        return foodsHealth.get(food);
+    }
+
+    public static int getFoodWaste(String food){
+        return foodsWaste.get(food);
+    }
+
+    public void addFood(String food, int amount){
+        if(amount>0){
+            foods.put(food, foods.get(food) + amount);
         }
+    }
+
+    public boolean takeFood(String food){
+        if(foods.get(food) > 0){
+            foods.put(food, foods.get(food) - 1);
+            return true;
+        }
+        return false;
     }
 }
 /*
-Food is held in a Foodstore class. Each Enclosure will have a Foodstore where the animals get their food
-from, and the Zoo will have a Foodstore where food is delivered to the Zoo.
+Food is held in a Foodstore class. Each Enclosure.Enclosure will have a Foodstore where the animals get their food
+from, and the Zoos.Zoo will have a Foodstore where food is delivered to the Zoos.Zoo.
 Your Foodstore class will need a number of access methods. addFood(String, int) that adds a number of
 items of food of the specified type to the Foodstore, i.e. addFood(“steak”,5). takeFood(String), which is
-used by the animals when they eat in their Enclosure, and also by the Zookeepers as they move food from
-the Zoo foodstore to the Enclosure foodstore. You may find you want to add other access functions for the
+used by the animals when they eat in their Enclosure.Enclosure, and also by the Zookeepers as they move food from
+the Zoos.Zoo foodstore to the Enclosure.Enclosure foodstore. You may find you want to add other access functions for the
 foodstores later on.
 How you model the storage in the Foodstore is up to you. It would be fine to have an int variable for each
 type of food, holding the quantity of that food in the Foodstore. If you want to make your code more
