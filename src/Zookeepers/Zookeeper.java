@@ -8,7 +8,7 @@ import Zoos.Zoo;
 
 import java.util.*;
 
-public abstract class Zookeeper {
+public class Zookeeper {
     public static final Set<String> zookeeperTypes = new HashSet<String>(Arrays.asList(
             "zookeeper",
             "playzookeeper",
