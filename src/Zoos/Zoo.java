@@ -28,8 +28,8 @@ public class Zoo {
 
     public boolean aMonthPasses(){
         isOpen=false;
-        for(Enclosure enclosure : enclosures){
-            if(enclosure.aMonthPasses()){
+        for(int i =0; i<enclosuresSize;i++){
+            if(enclosures[i].aMonthPasses()){
                 isOpen=true;
             }
         }
@@ -60,7 +60,7 @@ public class Zoo {
     }
     public void addEnclosure(Enclosure enclosure){
         enclosures[enclosuresSize++] = enclosure;
-        enclosure.setEnclosureID(enclosuresSize-1);
+        enclosure.setEnclosureID(enclosuresSize);
         currentEnclosure = enclosure;
     }
 
@@ -79,12 +79,12 @@ public class Zoo {
         if(isOpen){
             details.append(":::OPENED:::");
             details.append("\nZOO"+foodStore.getFoodStoreDetails()+"\n");
-            for(Enclosure enclosure : enclosures){
-                details.append("\n> "+enclosure.getEnclosureDetails());
-            }
-            details.append("\n");
             for (Zookeeper zookeeper : zookeepers){
                 details.append("\n"+zookeeper.getDetails());
+            }
+            details.append("\n");
+            for(int i=0;i<enclosuresSize;i++){
+                details.append("\n> "+enclosures[i].getEnclosureDetails());
             }
 
         }else{

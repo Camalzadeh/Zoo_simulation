@@ -11,8 +11,8 @@ import java.util.*;
 public class Zookeeper {
     public static final Set<String> zookeeperTypes = new HashSet<String>(Arrays.asList(
             "zookeeper",
-            "playzookeeper",
-            "phisiozookeeper")
+            "playZookeeper",
+            "physioZookeeper")
     );
 
     public static final int MAX_FOOD =20;
@@ -121,6 +121,6 @@ public class Zookeeper {
      }
 
      public String getDetails(){
-         return "ZOOKEEPER(" + this.getClass().getName() + ") : " + details;
+         return ("ZOOKEEPER(" + this.getClass().getName() + ") : " + details);
      }
 }

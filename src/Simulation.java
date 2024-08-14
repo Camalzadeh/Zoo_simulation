@@ -110,7 +110,7 @@ public class Simulation {
                         if( line.split(":").length>1){
                             addZookeeper(key,line.split(":")[1]);
                         }else{
-                            addZookeeper(key, ":");
+                            addZookeeper(key, "");
                         }
                     }
                 }

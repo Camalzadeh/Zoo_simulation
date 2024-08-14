@@ -131,8 +131,8 @@ public abstract class Animal {
 
     public String getAnimalDetails(){
         return (this.getClass().getName()+"("+gender+") "+
-                details+"\n\t\t" + " At the end of the month has"+
-                health+"health and is "+ age +" months old");
+                details+"\n\t\t" + " At the end of the month has "+
+                health+" health and is "+ age +" months old");
     }
     public boolean aMonthPasses(){
         details.setLength(0);
