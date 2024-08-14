@@ -1,23 +1,25 @@
 package Animals;
 
 public class Gorilla extends Ape {
-    @Override
-    void eat() {
+    public Gorilla(int age, char gender, String[] eats, int health, int lifeExpectancy){
+        super( age,  gender,  eats,  health,  lifeExpectancy);
+    }
 
+    public Gorilla(int age, char gender, int health){
+        super( age,  gender,  health,  32);
+    }
+
+    public Gorilla(){
+        super();
     }
 
     @Override
-    void decreaseHealth() {
-
+    public void treat(){
+        details.append("gets to paint; ");
+        painting();
     }
 
-    @Override
-    void treat() {
-
-    }
-
-    @Override
-    boolean aMonthPasses() {
-        return false;
+    public void painting(){
+        increaseHealth(4);
     }
 }

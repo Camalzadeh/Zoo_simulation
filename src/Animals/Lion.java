@@ -1,23 +1,21 @@
 package Animals;
 
 public class Lion extends BigCat{
-    @Override
-    void eat() {
+    public Lion(int age, char gender, String[] eats, int health, int lifeExpectancy){
+        super( age,  gender,  eats,  health,  lifeExpectancy);
+    }
 
+    public Lion(int age, char gender, int health){
+        super( age,  gender,  health);
+    }
+
+    public Lion(){
+        super();
     }
 
     @Override
-    void decreaseHealth() {
-
-    }
-
-    @Override
-    void treat() {
-
-    }
-
-    @Override
-    boolean aMonthPasses() {
-        return false;
+    protected void stroked(){
+        details.append("gets stroked; ");
+        increaseHealth(2);
     }
 }

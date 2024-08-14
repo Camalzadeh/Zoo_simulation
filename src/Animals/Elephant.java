@@ -1,23 +1,23 @@
 package Animals;
 
 public class Elephant extends Animal{
-    @Override
-    void eat() {
-
+    public Elephant(int age, char gender, String[] eats, int health, int lifeExpectancy){
+        super( age,  gender,  eats,  health,  lifeExpectancy);
     }
 
-    @Override
-    void decreaseHealth() {
-
+    public Elephant(int age, char gender, int health){
+        super( age,  gender,  new String[] {"hay","fruit"},  health,  36);
     }
 
-    @Override
-    void treat() {
+    public Elephant() {super(START_AGE,'m', new String[]{"hay","fruit"},MAX_HEALTH,36);}
 
+    @Override
+    public void treat(){
+        details.append("has a bath; ");
+        bath();
     }
 
-    @Override
-    boolean aMonthPasses() {
-        return false;
+    public void bath(){
+        increaseHealth(5);
     }
 }

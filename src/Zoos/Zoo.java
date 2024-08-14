@@ -84,7 +84,7 @@ public class Zoo {
             }
             details.append("\n");
             for (Zookeeper zookeeper : zookeepers){
-                details.append("\n"+zookeeper.getZookeeperDetails());
+                details.append("\n"+zookeeper.getDetails());
             }
 
         }else{
