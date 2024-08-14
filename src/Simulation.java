@@ -58,7 +58,7 @@ public class Simulation {
 
                 if (Foodstore.getFoodSet().contains(key) {
                     int quantity = Integer.parseInt(line.split(":")[1]);
-                    currentZoo.lastEnclosure().getFoodStore().addFood(key, quantity);
+                    currentZoo.getCurrentEnclosure().getFoodStore().addFood(key, quantity);
                 }
                 else{
                     if()
