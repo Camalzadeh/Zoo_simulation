@@ -26,7 +26,7 @@ public class Simulation {
         if(args.length>1){
             speed=Integer.parseInt(args[1]);
         }
-        String absolutePath = "/home/ubuntu/Desktop/ASUS komputer/Learning/coding/Java/Zoo_simulation/src/Data/"+filename;
+        String absolutePath = "src/Data/"+filename;
         runSimulation(absolutePath,speed);
     }
     static void runSimulation(String filename, int speed){
@@ -67,16 +67,22 @@ public class Simulation {
             System.out.println("Simulation finished");
         }
     }
-    static void fileToSimulation(String file) throws Exception {
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufferedReader=new BufferedReader(fileReader);
-        String line;
-        while((line=bufferedReader.readLine())!=null){
-            lineIndex++;
-            readLine(line);
+    static void fileToSimulation(String file) {
+
+
+        try(
+                FileReader fileReader = new FileReader(file);
+                BufferedReader bufferedReader=new BufferedReader(fileReader)
+        ){
+            String line;
+            while((line=bufferedReader.readLine())!=null){
+                lineIndex++;
+                readLine(line);
+            }
+        }catch(IOException e){
+            System.err.println(e.getMessage());
         }
-        bufferedReader.close();
-        fileReader.close();
+
     }
     static void readLine(String line){
         String key = line.split(":")[0];
