@@ -57,10 +57,6 @@ public class Simulation {
             for(Zoo zoo:zoos){
                 System.out.println(zoo.getZooDetails());
             }
-        }catch (FileNotFoundException e) {
-            System.err.println("Unable to open file '" + filename + "'");
-        } catch (IOException e) {
-            System.err.println("Error reading file '" + filename + "'");
         } catch (Exception e) {
             e.printStackTrace();
         }finally{
@@ -79,8 +75,10 @@ public class Simulation {
                 lineIndex++;
                 readLine(line);
             }
-        }catch(IOException e){
-            System.err.println(e.getMessage());
+        }catch (FileNotFoundException e) {
+            System.err.println("Unable to open file '" + file + "'");
+        } catch (IOException e) {
+            System.err.println("Error reading file '" + file + "'");
         }
 
     }
